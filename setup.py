@@ -24,18 +24,18 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='bitrix24-rest',
-    version='1.1.1',
+    name='bitrix24-rest-motexc',
+    version='1.1.2',
     install_requires=['requests'],
     packages=find_packages(),
-    url='https://github.com/akopkesheshyan/bitrix24-python-rest',
+    url='https://github.com/Motexc/bitrix24-python-rest.git',
     license='MIT',
-    author='Akop Kesheshyan',
-    author_email='akop.kesheshyan@icloud.com',
-    description='Bitrix24 REST API wrapper provides easy way to communicate with bitrix24 portal over REST without OAuth',
+    author='Andrey Yakovlev',
+    author_email='modifikator97@gmail.com',
+    description='A fork of bitrix24-rest package, abandoned by his author Akop Kesheshyan',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    keywords='bitrix24 api rest',
+    keywords='bitrix24 api rest fork',
     classifiers=[
         # How mature is this project? Common values are
         #   3 - Alpha
@@ -58,12 +58,6 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.2',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3+',
     ],
 )

@@ -61,9 +61,3 @@ of data use limits.
 ```
 python -m unittest discover
 ```
-
-## Author
-
-Akop Kesheshyan - <akop.kesheshyan@icloud.com>
-
-New contributers and pull requests are welcome.
