@@ -25,14 +25,14 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='bitrix24-rest-motexc',
-    version='1.1.3alpha5',
+    version='1.1.4',
     install_requires=['requests'],
     packages=find_packages(),
     url='https://github.com/Motexc/bitrix24-python-rest.git',
     license='MIT',
     author='Andrey Yakovlev',
     author_email='modifikator97@gmail.com',
-    description='A fork of bitrix24-rest package, abandoned by his author Akop Kesheshyan',
+    description="A fork of bitrix24-rest package, abandoned by it's author Akop Kesheshyan",
     long_description=long_description,
     long_description_content_type='text/markdown',
     keywords='bitrix24 api rest fork',
@@ -41,7 +41,7 @@ setup(
         #   3 - Alpha
         #   4 - Beta
         #   5 - Production/Stable
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
 
         # Indicate who your project is intended for
         'Intended Audience :: Developers',
@@ -55,19 +55,6 @@ setup(
 
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.2',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
-        'Programming Language :: Python :: 3.10',
-        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3'
     ],
 )
