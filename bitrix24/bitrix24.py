@@ -85,43 +85,45 @@ class Bitrix24(object):
         try:
             url = '{0}/{1}.json'.format(self.domain, method)
 
-            param = self._prepare_params(params)
-            answer = ''
+            p = self._prepare_params(params)
 
-            if method.rsplit('.', 1)[-1] in ['add', 'update', 'delete', 'set', 'addfile']:
-                request = requests.post(url, data=param, timeout=self.timeout, verify=self.safe).json()
+            if method.rsplit('.', 1)[1] not in ['add', 'update', 'delete', 'set', 'addfile']:
+                h = {'Content-Type': 'text/text; charset=utf-8'}
+                r = requests.post(url, data=p, timeout=self.timeout, verify=self.safe, headers=h).json()
+                print(r)
             else:
-                request = requests.get(url, params=param, timeout=self.timeout, verify=self.safe)
+                r = requests.get(url, params=p, timeout=self.timeout, verify=self.safe)
+                print(r)
                 try:
-                    answer = request.json()
+                    r = r.json()
                 except requests.exceptions.JSONDecodeError as e:
                     warnings.warn("bitrix24: JSON decode error...")
-                    if answer.status_code == 403:
+                    if r.status_code == 403:
                         warnings.warn(f"bitrix24: Forbidden: {method}. Check your bitrix24 webhook settings. Returning None! ")
                         return None
-                    elif answer.ok:
-                        return answer.content
+                    elif r.ok:
+                        return r.content
 
 
 
         except ValueError:
-            if answer['error'] not in 'QUERY_LIMIT_EXCEEDED':
-                raise BitrixError(answer)
+            if r['error'] not in 'QUERY_LIMIT_EXCEEDED':
+                raise BitrixError(r)
             # Looks like we need to wait until expires limitation time by Bitrix24 API
             sleep(2)
             return self.callMethod(method, **params)
 
-        if 'error' in answer:
-            raise BitrixError(answer)
+        if 'error' in r:
+            raise BitrixError(r)
         if 'start' not in params:
             params['start'] = 0
-        if 'next' in answer and answer['total'] > params['start']:
+        if 'next' in r and r['total'] > params['start']:
             params['start'] += 50
             data = self.callMethod(method, **params)
-            if isinstance(answer['result'], dict):
-                result = answer['result'].copy()
+            if isinstance(r['result'], dict):
+                result = r['result'].copy()
                 result.update(data)
             else:
-                result = answer['result'] + data
+                result = r['result'] + data
             return result
-        return answer['result']
+        return r['result']

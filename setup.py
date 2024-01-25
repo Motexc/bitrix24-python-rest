@@ -25,7 +25,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='bitrix24-rest-motexc',
-    version='1.1.3',
+    version='1.1.3alpha5',
     install_requires=['requests'],
     packages=find_packages(),
     url='https://github.com/Motexc/bitrix24-python-rest.git',
@@ -41,7 +41,7 @@ setup(
         #   3 - Alpha
         #   4 - Beta
         #   5 - Production/Stable
-        'Development Status :: 5 - Production/Stable',
+        'Development Status :: 3 - Alpha',
 
         # Indicate who your project is intended for
         'Intended Audience :: Developers',
