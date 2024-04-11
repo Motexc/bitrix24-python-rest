@@ -81,7 +81,7 @@ class Bitrix24(object):
             p = self._prepare_params(params)
             m = method.rsplit('.', 1)[1]
 
-            if m not in ['add', 'update', 'delete', 'set']:
+            if m not in ['add', 'update', 'delete', 'set', 'get']:
                 h = {'Content-Type': 'text/text; charset=utf-8'}
                 try:
                     params = params['fields']
