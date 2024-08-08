@@ -19,7 +19,7 @@ REST API over webhooks.
 
 ## Installation
 ```
-pip install bitrix24-rest
+pip install bitrix24-rest-motexc
 ```
 
 ## Quickstart
